@@ -19,9 +19,10 @@ def mxrank(k) :
     multixrank_obj.write_ranking(ranking, path = "results/param_" + str(k))
 
 
-size = len(glob.glob("parameters/*.yml"))
-num_cpu = 14
-p = mp.Pool(processes=num_cpu)
-p.map(mxrank, [i for i in range(size)])    
+if __name__ == '__main__':
+    size = len(glob.glob("parameters/*.yml"))
+    num_cpu = 14
+    p = mp.Pool(processes=num_cpu)
+    p.map(mxrank, [i for i in range(size)])    
     
 
